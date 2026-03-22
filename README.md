@@ -5,8 +5,7 @@ Here is my python source code for TrafficTrack - an automated vehicle detection,
 * <p align="center">
   <img src="https://github.com/user-attachments/assets/106c1786-6790-4431-bddd-2ffeb851efe1" width="30%"/>
   <img src="https://github.com/user-attachments/assets/15ad69f3-6383-4f3b-8f97-4e9dfa9ad971" width="30%"/>
-  <img src="https://github.com/user-attachments/assets/109b8130-ed7f-42a2-bb0b-cab35f3b750f" width="30%"/>
-</p>
+  <img src="https://github.com/user-attachments/assets/109b8130-ed7f-42a2-bb0b-cab35f3b750f" width="30%"/></p>
 
 # Tracking Apps
 
@@ -41,7 +40,7 @@ You need to download the UA-DETRAC Images and XML annotation files and store the
 3. Then you could simply run YOLOv8 training using the generated `data.yaml`.
 
 # Experiments
-<img src="https://github.com/user-attachments/assets/9731d691-612c-40ba-becc-2394f29c27a0" width="700"/>
+<img width="1600" height="1163" alt="Code_Generated_Image" src="https://github.com/user-attachments/assets/b24a18fb-b7ee-454b-8ab4-f566567c9dce" />
 The model was trained using the `yolov8s.pt` pre-trained weights. I trained the model for 50 epochs. The model reached its convergence point and achieved impressive tracking performance on highway scenarios. The key metrics for the best epoch are shown below:
 * **mAP@50:** ~80.0%
 * **mAP@50-95:** 65.9%
