@@ -16,7 +16,7 @@ Below are the scripts to run the demo:
 
 # Dataset
 
-The dataset used for training my model is the **UA-DETRAC** dataset, which is a challenging real-world traffic dataset. 
+The dataset used for training my model is the **[UA-DETRAC](https://www.kaggle.com/datasets/bratjay/ua-detrac-orig)** dataset, which is a challenging real-world traffic dataset. 
 Due to its large size, I only uploaded a small sample of image sequences (`sample_sequence/`) and a demo video in the `data/` folder for testing purposes. You can download the full original dataset from their official website.
 
 # Categories
