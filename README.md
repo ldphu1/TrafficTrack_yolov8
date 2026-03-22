@@ -2,6 +2,7 @@
 Here is my python source code for TrafficTrack - an automated vehicle detection, tracking, and counting system. With my code, you could:
 * Run an app which you could track and count vehicles from a video file (`.mp4`)
 * Run an app which you could track and count vehicles from an image sequence (extracted frames)
+* <img width="1518" height="852" alt="image" src="https://github.com/user-attachments/assets/106c1786-6790-4431-bddd-2ffeb851efe1" /><img width="1514" height="803" alt="image" src="https://github.com/user-attachments/assets/15ad69f3-6383-4f3b-8f97-4e9dfa9ad971" />![Uploading image.png…]()
 
 # Tracking Apps
 
@@ -36,7 +37,7 @@ You need to download the UA-DETRAC Images and XML annotation files and store the
 3. Then you could simply run YOLOv8 training using the generated `data.yaml`.
 
 # Experiments
-
+<img width="1600" height="1280" alt="Code_Generated_Image" src="https://github.com/user-attachments/assets/ca17ea93-2352-43e8-acb4-02de6c2afa2d" />
 The model was trained using the `yolov8s.pt` pre-trained weights. I trained the model for 50 epochs. The model reached its convergence point and achieved impressive tracking performance on highway scenarios. The key metrics for the best epoch are shown below:
 * **mAP@50:** ~80.0%
 * **mAP@50-95:** 65.9%
