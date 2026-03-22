@@ -28,7 +28,10 @@ The table below shows 4 vehicle categories my model used for classification:
 
 # Trained models
 
-You could find my best trained model at `weights/best.pt`. *(Note: If the file is not there, please download it from the Releases section of this repository).*
+Due to GitHub's file size limits, the trained weights are hosted externally. 
+📥 **[Download best.pt here](https://drive.google.com/file/d/1wFvfnLZDDCHhaULvct_feOG76z7I7t39/view?usp=drive_link)**
+
+*Note: After downloading, please place the `best.pt` file inside the `weights/` folder before running any scripts.*
 
 # Training
 
