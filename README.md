@@ -37,7 +37,7 @@ You need to download the UA-DETRAC Images and XML annotation files and store the
 
 # Experiments
 
-The model was trained using the `yolov8s.pt` pre-trained weights. I trained the model for 80 epochs. The model reached its convergence point and achieved impressive tracking performance on highway scenarios. The key metrics for the best epoch are shown below:
+The model was trained using the `yolov8s.pt` pre-trained weights. I trained the model for 50 epochs. The model reached its convergence point and achieved impressive tracking performance on highway scenarios. The key metrics for the best epoch are shown below:
 * **mAP@50:** ~80.0%
 * **mAP@50-95:** 65.9%
 
