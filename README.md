@@ -41,7 +41,7 @@ You need to download the UA-DETRAC Images and XML annotation files and store the
 
 # Experiments
 
-<img width="700" height="700" alt="Code_Generated_Image" src="https://github.com/user-attachments/assets/f03d9256-8019-4816-8c0b-06fd02398892" />
+<img width="1000" height="700" alt="Code_Generated_Image" src="https://github.com/user-attachments/assets/f03d9256-8019-4816-8c0b-06fd02398892" />
 
 The model was trained using the `yolov8s.pt` pre-trained weights. I trained the model for 50 epochs. The model reached its convergence point and achieved impressive tracking performance on highway scenarios. The key metrics for the best epoch are shown below:
 * **mAP@50:** ~80.0%
