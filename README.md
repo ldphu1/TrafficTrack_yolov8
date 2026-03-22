@@ -2,7 +2,8 @@
 Here is my python source code for TrafficTrack - an automated vehicle detection, tracking, and counting system. With my code, you could:
 * Run an app which you could track and count vehicles from a video file (`.mp4`)
 * Run an app which you could track and count vehicles from an image sequence (extracted frames)
-* <img width="1518" height="852" alt="image" src="https://github.com/user-attachments/assets/106c1786-6790-4431-bddd-2ffeb851efe1" /><img width="1514" height="803" alt="image" src="https://github.com/user-attachments/assets/15ad69f3-6383-4f3b-8f97-4e9dfa9ad971" />![Uploading image.png…]()
+* <img width="1518" height="852" alt="image" src="https://github.com/user-attachments/assets/106c1786-6790-4431-bddd-2ffeb851efe1" /><img width="1514" height="803" alt="image" src="https://github.com/user-attachments/assets/15ad69f3-6383-4f3b-8f97-4e9dfa9ad971" /><img width="1600" height="1280" alt="Code_Generated_Image" src="https://github.com/user-attachments/assets/1abba344-b5af-4fc3-91e3-984fe8fafd07" />
+
 
 # Tracking Apps
 
