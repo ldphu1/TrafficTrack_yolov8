@@ -35,7 +35,7 @@ Due to GitHub's file size limits, the trained weights are hosted externally.
 
 # Training
 
-You need to download the UA-DETRAC Images and XML annotation files and store them in your local folder. 
+You need to download the [UA-DETRAC](https://www.kaggle.com/datasets/bratjay/ua-detrac-orig) Images and XML annotation files and store them in your local folder. 
 1. First, you need to convert the XML annotations to YOLO format by configuring the input paths and running the script:
    `python3 format_data.py`
    This script will automatically parse XMLs, convert bounding boxes, split train/val sets, and generate the `data.yaml` file.
