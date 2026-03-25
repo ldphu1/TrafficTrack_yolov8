@@ -39,7 +39,7 @@ def process_image_sequence(model_path, sequence_folder, output_path):
                 boxes_xywh = result[0].boxes.xywh.cpu()
                 scores = result[0].boxes.conf.cpu()
                 classes = result[0].boxes.cls.cpu()
-
+                # bbox
                 for box_xy, score, cls in zip(boxes_xyxy, scores, classes):
                     if score < 0.5:
                         continue
@@ -59,11 +59,10 @@ def process_image_sequence(model_path, sequence_folder, output_path):
                     if track_id in previous_y_positions:
                         prev_y = previous_y_positions[track_id]
 
-                        if prev_y < LINE_Y and current_y >= LINE_Y:
-                            if track_id not in counted_ids:
-                                crossed_count += 1
-                                counted_ids.add(track_id)
-                        elif prev_y > LINE_Y and current_y <= LINE_Y:
+                        if (
+                            (prev_y < LINE_Y and current_y >= LINE_Y) or
+                            (prev_y > LINE_Y and current_y <= LINE_Y)
+                        ):
                             if track_id not in counted_ids:
                                 crossed_count += 1
                                 counted_ids.add(track_id)
@@ -88,7 +87,7 @@ def process_image_sequence(model_path, sequence_folder, output_path):
 
 if __name__ == '__main__':
     MODEL_WEIGHTS = "weights/best.pt"
-    INPUT_FOLDER = "data/sample_sequence"
+    INPUT_FOLDER = r"C:\Users\Asus\Desktop\DL\project1\MVI_39361"
     OUTPUT_VIDEO = "output_sequence.mp4"
 
     process_image_sequence(MODEL_WEIGHTS, INPUT_FOLDER, OUTPUT_VIDEO)
