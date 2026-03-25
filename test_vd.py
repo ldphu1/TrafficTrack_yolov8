@@ -57,8 +57,8 @@ def process_video(model_path, video_path, output_path):
                     prev_y = previous_y_positions[track_id]
 
                     if (
-                            (prev_y < LINE_Y and current_y >= LINE_Y) or
-                            (prev_y > LINE_Y and current_y <= LINE_Y)
+                        (prev_y < LINE_Y and current_y >= LINE_Y) or
+                        (prev_y > LINE_Y and current_y <= LINE_Y)
                     ):
                         if track_id not in counted_ids:
                             crossed_count += 1
