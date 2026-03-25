@@ -29,56 +29,52 @@ def process_video(model_path, video_path, output_path):
         flag, frame = cap.read()
         if not flag:
             break
-        result = model.track(frame, persist=True, verbose=False, conf=0.6 )
-        for r in result:
-            annotated_frame = frame.copy()
+        result = model.track(frame, persist=True, verbose=False, conf=0.6)[0]
+        annotated_frame = frame.copy()
 
-            if r.boxes.id is not None:
-                boxes_xyxy = r.boxes.xyxy.cpu()
-                boxes_xywh = r.boxes.xywh.cpu()
-                scores = r.boxes.conf.cpu()
-                classes = r.boxes.cls.cpu()
+        if result.boxes is not None and result.boxes.id is not None:
+            boxes_xyxy = result.boxes.xyxy.cpu()
+            boxes_xywh = result.boxes.xywh.cpu()
+            scores = result.boxes.conf.cpu()
+            classes = result.boxes.cls.cpu()
 
-                for box_xy, score, cls in zip(boxes_xyxy, scores, classes):
-                    if score < 0.6:
-                        continue
-                    x1, y1, x2, y2 = map(int, box_xy)
-                    label = f"{model.names[int(cls)]} {score:.2f}"
-                    cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    cv2.putText(annotated_frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 3)
+            #vẽ bbox
+            for box_xy, score, cls in zip(boxes_xyxy, scores, classes):
+                x1, y1, x2, y2 = map(int, box_xy)
+                label = f"{model.names[int(cls)]} {score:.2f}"
+                cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                cv2.putText(annotated_frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 3)
 
-                track_ids = r.boxes.id.int().cpu().tolist()
+            track_ids = result.boxes.id.int().cpu().tolist()
 
-                LINE_Y = int(height - 100)
-                # Tracking and Counting
-                for box_wh, track_id in zip(boxes_xywh, track_ids):
-                    x_center, y_center, w, h = box_wh
-                    current_y = float(y_center)
+            LINE_Y = int(height - 100)
+            # Tracking and Counting
+            for box_wh, track_id in zip(boxes_xywh, track_ids):
+                x_center, y_center, w, h = box_wh
+                current_y = float(y_center)
 
-                    if track_id in previous_y_positions:
-                        prev_y = previous_y_positions[track_id]
+                if track_id in previous_y_positions:
+                    prev_y = previous_y_positions[track_id]
 
-                        if prev_y < LINE_Y and current_y >= LINE_Y:
-                            if track_id not in counted_ids:
-                                crossed_count += 1
-                                counted_ids.add(track_id)
-                        elif prev_y > LINE_Y and current_y <= LINE_Y:
-                            if track_id not in counted_ids:
-                                crossed_count += 1
-                                counted_ids.add(track_id)
+                    if (
+                            (prev_y < LINE_Y and current_y >= LINE_Y) or
+                            (prev_y > LINE_Y and current_y <= LINE_Y)
+                    ):
+                        if track_id not in counted_ids:
+                            crossed_count += 1
+                            counted_ids.add(track_id)
 
-                    previous_y_positions[track_id] = current_y
+                previous_y_positions[track_id] = current_y
 
-                    x_center, y_center, w, h = box_wh
-                    track = track_his[track_id]
-                    track.append((float(x_center), float(y_center)))
+                track = track_his[track_id]
+                track.append((float(x_center), float(y_center)))
 
-                    if len(track) > 60:
-                        track.pop(0)
+                if len(track) > 60:
+                    track.pop(0)
 
-                    points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
+                points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
 
-                    cv2.polylines(annotated_frame, [points], False, (0, 255, 255), 2)
+                cv2.polylines(annotated_frame, [points], False, (0, 255, 255), 2)
             cv2.putText(annotated_frame, str(crossed_count), (40, 60), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (255, 255, 0), 4)
             out.write(annotated_frame)
 
