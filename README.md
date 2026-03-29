@@ -1,4 +1,4 @@
-# TrafficTrack_yolov8
+# Introduction
 Here is my python source code for TrafficTrack - an automated vehicle detection, tracking, and counting system. With my code, you could:
 * Run an app which you could track and count vehicles from a video file (`.mp4`)
 * Run an app which you could track and count vehicles from an image sequence (extracted frames)
