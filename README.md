@@ -1,4 +1,5 @@
 # Introduction
+
 Here is my python source code for TrafficTrack - an automated vehicle detection, tracking, and counting system. With my code, you could:
 * Run an app which you could track and count vehicles from a video file (`.mp4`)
 * Run an app which you could track and count vehicles from an image sequence (extracted frames)
@@ -7,9 +8,9 @@ Here is my python source code for TrafficTrack - an automated vehicle detection,
   <img src="https://github.com/user-attachments/assets/15ad69f3-6383-4f3b-8f97-4e9dfa9ad971" width="30%"/>
   <img src="https://github.com/user-attachments/assets/109b8130-ed7f-42a2-bb0b-cab35f3b750f" width="30%"/></p>
 
-# Tracking Apps
+# Tracking
 
-In order to use this app, you need a traffic video or a sequence of images. When a vehicle appears in the frame, it will be detected, tracked with a colored bounding box, and its trajectory (tail) will be drawn. A virtual line (Line Crossing) is set up at the bottom of the frame; whenever a vehicle crosses this line, the counter will increase. 
+In order to use this repo, you need a traffic video or a sequence of images. When a vehicle appears in the frame, it will be detected, tracked with a colored bounding box, and its trajectory (tail) will be drawn. A virtual line (Line Crossing) is set up at the bottom of the frame; whenever a vehicle crosses this line, the counter will increase. 
 Below are the scripts to run the demo:
 * **For video:** simply run `python3 test_vd.py`
 * **For image sequence:** simply run `python3 detrac_sequence_test.py`
